@@ -18,5 +18,4 @@ precmd () {
   RPROMPT="${git_branch}"
 }
 
-
 PROMPT="%F{blue}%~ "
