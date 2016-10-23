@@ -1,9 +1,22 @@
+autoload -Uz vcs_info
 autoload -U colors && colors
+setopt promptsubst
 
-git_prompt() {
- ref=$(git symbolic-ref HEAD | cut -d'/' -f3)
- echo $ref
+zstyle ':vcs_info:*' formats '%b'
+
+precmd () {
+  vcs_info
+
+  STATUS=$(command git status --porcelain 2> /dev/null | tail -n1)
+
+  if [[ -n $STATUS ]]; then
+    local git_branch='%F{red}$vcs_info_msg_0_'
+  else
+    local git_branch='%F{green}$vcs_info_msg_0_'
+  fi
+
+  RPROMPT="${git_branch}"
 }
 
-PROMPT="%{$fg[blue]%}%~ "
-RPROMPT="%{$fg[green]%}$(git_prompt)"
+
+PROMPT="%F{blue}%~ "
