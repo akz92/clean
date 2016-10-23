@@ -1,6 +1,9 @@
-local user='%{$fg[magenta]%}%n@%{$fg[magenta]%}%m%{$reset_color%}'
-local pwd='%{$fg[blue]%}%~%{$reset_color%}'
-local git_branch='$(git_prompt_status)%{$reset_color%}$(git_prompt_info)%{$reset_color%}'
+autoload -U colors && colors
 
-PROMPT="${pwd} "
-RPROMPT="${git_branch}"
+git_prompt() {
+ ref=$(git symbolic-ref HEAD | cut -d'/' -f3)
+ echo $ref
+}
+
+PROMPT="%{$fg[blue]%}%~ "
+RPROMPT="%{$fg[green]%}$(git_prompt)"
