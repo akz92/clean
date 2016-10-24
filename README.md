@@ -14,3 +14,10 @@ Add the following to your **~/.zshrc** file:
 zplug "akz92/clean"
 ```
 
+### Using oh-my-zsh
+
+Put clean.zsh-theme in your **.oh-my-zhs/themes** directory, then in your **~/.zshrc** file:
+
+```bash
+ZSH_THEME="clean"
+```
