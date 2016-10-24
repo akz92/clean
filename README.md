@@ -16,7 +16,7 @@ zplug "akz92/clean"
 
 ### Using oh-my-zsh
 
-Put clean.zsh-theme in your **.oh-my-zhs/themes** directory, then in your **~/.zshrc** file:
+Put **clean.zsh-theme** in your **.oh-my-zhs/themes** directory, then in your **~/.zshrc** file:
 
 ```bash
 ZSH_THEME="clean"
