@@ -16,6 +16,11 @@ precmd () {
   fi
 
   RPROMPT="${git_branch}"
+
+  if [ "$ZSH_CLEAN_PATH_STYLE" = "1" ]; then
+    PROMPT="%F{blue}%c "
+  else
+    PROMPT="%F{blue}%~ "
+  fi
 }
 
-PROMPT="%F{blue}%~ "
